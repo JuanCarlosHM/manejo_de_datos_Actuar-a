@@ -46,10 +46,10 @@ public class kruskal
    */
    static void makeSubSet(int vertices)
    {
-	    for( int i = 1; i <= vertices; ++i){
-          parent[i] = i;
-       }
-	}
+	for( int i = 1; i <= vertices; ++i){
+         parent[i] = i;
+       	}
+   }
 
    /**
    * Find root of i
@@ -58,7 +58,7 @@ public class kruskal
    static int find( int i)
    {
     return(i == parent[i]) ? i : (parent[i] = find(parent[i]));
-	}
+   }
 
    /**
    * method that does union of two sets of x and y
@@ -69,21 +69,21 @@ public class kruskal
    {
       int xRoot = find(x);
       int yRoot = find(y);
-      parent[xRoot] = yRoot;
-	}
+      parent[xRoot] = yRoot; 
+   }
 
    /**
    * method that determinates if the union of two vertices cause cycle.
    * @param x Specifies vertice related with vertice y
    * @param y Specifies vertice related with vertice x
    */
-	public static boolean notCycle (int x, int y)
+   public static boolean notCycle (int x, int y)
    {
-	    if(find(x) == find(y))
-         return true;
-       else
-	      return false;
-	}
+      if(find(x) == find(y))
+        return true;
+      else
+      return false;
+   }
 
    /**
    * The main function to construct MST using Kruskal's algorithm
@@ -94,23 +94,23 @@ public class kruskal
       int surce   = 0;
       int destiny = 0;
       int weight  = 0;
-	   int total   = 0;
-	   int numEdges = 0;
+      int total   = 0;    
+      int numEdges = 0;
 
       BufferedWriter bw = null;
-		FileWriter fw = null;
+      FileWriter fw = null;
 
-		try{
+	try{
 
-			String title = "Kruskal’s Algorithm\n";
+	 String title = "Kruskal’s Algorithm\n";
 
-			fw = new FileWriter("Results.txt");
-			bw = new BufferedWriter(fw);
-			bw.write(title);
+	 fw = new FileWriter("Results.txt");
+	 bw = new BufferedWriter(fw);
+	 bw.write(title);
 
-		}catch (IOException e){
-			e.printStackTrace();
-      }
+	}catch (IOException e){
+	       e.printStackTrace();
+        }
 
       makeSubSet(V);
       Arrays.sort(arista, 0, E + 1, new Edge());
@@ -125,8 +125,8 @@ public class kruskal
       if(!notCycle(surce, destiny))
          {
             total += weight;
-	         MST[numEdges ++] = arista[i];
-	         union(surce, destiny);
+	    MST[numEdges ++] = arista[i];
+	    union(surce, destiny);
          }
       }
 
@@ -136,7 +136,7 @@ public class kruskal
                String error = "This is the content to write into file\n";
                bw.append(error);
             }catch(IOException e){
-				      e.printStackTrace();
+		  e.printStackTrace();
             }
 
       return;
