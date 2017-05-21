@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
 * Kruskal’s Algorithm
 * @version Manejo de Estructuras de Datos
-* @author
+* @author @JC_Worthing 
 */
 public class kruskal
 { //Start of class Kruskal
